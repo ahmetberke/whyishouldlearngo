@@ -1,8 +1,78 @@
 <html>
     <head>
         <title>why i should learn go</title>
+        <style>
+            html {
+                height: 100%;
+            }
+            body{
+                font-family: Verdana, sans-serif;
+                font-weight: 400;
+                height: 100%;
+                margin: 0;
+                font-size: 30px;
+                justify-content: center;
+                align-items: center;
+            }
+            .outer {
+                display:table;
+                width:100%;
+                height: 100%;
+            }
+            .tit {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                width: 100%;
+            }
+            .content {
+                display: inline-block;
+            }
+            .because {
+                font-weight: 600;
+                float: left;
+                color: #6ad6e4;
+                margin-right:20px;
+            }
+            .text {
+                text-align: left;
+                float: left;
+                width: 300px;
+                font-style: italic;
+            }
+        </style>
     </head>
     <body>
-        because this fucking language is the best!
+        <div class="outer">
+            <div class="tit">
+                <div class="content">
+                    <div class="because">BECAUSE</div><div class="text">THE FUCKING BEST</dib>
+                </div>
+            </div>
+        </div>
+        <script async>
+            const text = document.getElementsByClassName("text")[0];
+            var texts = ["THE FUCKING BEST", "PERFORMANCE", "STRONG", "CONCURRENCY", "GOOGLE"]
+            
+            function sleep(ms) {
+               return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            async function loaded() {
+                var count = 1;
+                while (true) {
+                    text.innerHTML = texts[count%texts.length];
+                    if (count%texts.length == 0) {
+                        await sleep(3000);
+                    }else {
+                        await sleep(400);
+                    }
+                    count++;
+                }
+            }
+
+            loaded();
+
+        </script>
     </body>
 </html>
